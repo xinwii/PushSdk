@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.pushsdk.library.utils.PushDeviceInfoMgr;
 import com.pushsdk.library.wrapper.GPushWrapper;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -139,7 +140,7 @@ public class MiPushMsgReceiver extends PushMessageReceiver {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
                 mRegId = cmdArg1;
                 Log.e("GPush","mi push RegId>>>>>>>" + mRegId);
-                GPushWrapper.getInstance().upLoadToken(mRegId);
+                GPushWrapper.getInstance().upLoadToken(mRegId, PushDeviceInfoMgr.MI_UI_ROM);
             }
         }
     }

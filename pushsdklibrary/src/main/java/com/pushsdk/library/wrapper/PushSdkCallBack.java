@@ -8,5 +8,5 @@ import android.content.Context;
 
 public interface PushSdkCallBack {
     void onNotificationMessageClicked(Context context, String message);
-    void upLoadToken(String token);
+    void upLoadToken(String token,int RomType);
 }

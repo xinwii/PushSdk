@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 
 
-import com.pushsdk.library.utils.GPushDeviceInfoMgr;
+import com.pushsdk.library.utils.PushDeviceInfoMgr;
 
 import java.util.Set;
 
@@ -39,7 +39,7 @@ public class GPushWrapper {
     }
 
     public void init(Context context) {
-        ROM_TYPE = GPushDeviceInfoMgr.getROMType();
+        ROM_TYPE = PushDeviceInfoMgr.getROMType();
         Log.e("GPush", ">>>>>>>>>>>>>>>>>>>>>>>>rom type =" + ROM_TYPE);
         try {
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
@@ -48,17 +48,17 @@ public class GPushWrapper {
             String flymeId = applicationInfo.metaData.getString("FLYME_ID");
             String flymeKey = applicationInfo.metaData.getString("FLYME_KEY");
             switch (ROM_TYPE) {
-                case GPushDeviceInfoMgr.MI_UI_ROM:
+                case PushDeviceInfoMgr.MI_UI_ROM:
                     GPushMiPushClientWrap.init(context, miId, miKey);
                     break;
-                case GPushDeviceInfoMgr.HUAWEI_EM_UI_ROM:
+                case PushDeviceInfoMgr.HUAWEI_EM_UI_ROM:
                     GPushHuaweiPushManagerWrap.init(context);
                     break;
-                case GPushDeviceInfoMgr.MEIZU_FLYME_OS_ROM:
+                case PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM:
                     GPushFlymePushManagerWrap.init(context, flymeId, flymeKey);
                     break;
                 //其他手机系统默认采用小米推送
-                case GPushDeviceInfoMgr.OTHER_ROM:
+                case PushDeviceInfoMgr.OTHER_ROM:
                     GPushMiPushClientWrap.init(context, miId, miKey);
                     break;
             }
@@ -73,8 +73,8 @@ public class GPushWrapper {
     }
 
     //上报token，小米是regId,魅族是pushId,华为是token
-    public void upLoadToken(String token) {
-        callBack.upLoadToken(token);
+    public void upLoadToken(String token,int romType) {
+        callBack.upLoadToken(token,romType);
     }
 
     public void setClickCallBack(PushSdkCallBack callBack) {
@@ -83,17 +83,17 @@ public class GPushWrapper {
 
     public void setAliasAndTags(Context context, String strAlias, Set<String> setTags) {
         switch (ROM_TYPE) {
-            case GPushDeviceInfoMgr.MI_UI_ROM:
+            case PushDeviceInfoMgr.MI_UI_ROM:
                 //扩展参数，暂时没有用途，直接填null
                 GPushMiPushClientWrap.setAliasAndTags(context, strAlias, setTags);
                 break;
-            case GPushDeviceInfoMgr.HUAWEI_EM_UI_ROM:
+            case PushDeviceInfoMgr.HUAWEI_EM_UI_ROM:
                 GPushHuaweiPushManagerWrap.setAliasAndTags(context, strAlias, setTags);
                 break;
-            case GPushDeviceInfoMgr.MEIZU_FLYME_OS_ROM:
+            case PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM:
                 GPushFlymePushManagerWrap.setAliasAndTags(context, strAlias, setTags);
                 break;
-            case GPushDeviceInfoMgr.OTHER_ROM:
+            case PushDeviceInfoMgr.OTHER_ROM:
                 //扩展参数，暂时没有用途，直接填null
                 GPushMiPushClientWrap.setAliasAndTags(context, strAlias, setTags);
                 break;

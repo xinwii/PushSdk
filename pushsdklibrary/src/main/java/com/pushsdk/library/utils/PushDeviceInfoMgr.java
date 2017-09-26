@@ -15,7 +15,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-public class GPushDeviceInfoMgr
+public class PushDeviceInfoMgr
 {
     private final static String DEFAULT_IMEI = "000000000000000";
 	private final static String DEFAULT_ANDROID_ID = "0000000000000000";

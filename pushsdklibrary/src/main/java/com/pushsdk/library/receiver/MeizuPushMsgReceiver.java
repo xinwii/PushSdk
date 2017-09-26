@@ -11,6 +11,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
+import com.pushsdk.library.utils.PushDeviceInfoMgr;
 import com.pushsdk.library.wrapper.GPushWrapper;
 
 public class MeizuPushMsgReceiver extends MzPushMessageReceiver {
@@ -20,7 +21,7 @@ public class MeizuPushMsgReceiver extends MzPushMessageReceiver {
     public void onRegister(Context context, String pushid) {
         final String content = "获取token和belongId成功，token = " + pushid + ",belongId = ";
         Log.e("GPush","meizu push" + content);
-        GPushWrapper.getInstance().upLoadToken(pushid);
+        GPushWrapper.getInstance().upLoadToken(pushid, PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM);
     }
 
     @Override
@@ -49,7 +50,7 @@ public class MeizuPushMsgReceiver extends MzPushMessageReceiver {
     public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
         Log.i(TAG, "onRegisterStatus " + registerStatus);
         //新版订阅回调
-        GPushWrapper.getInstance().upLoadToken(registerStatus.getPushId());
+        GPushWrapper.getInstance().upLoadToken(registerStatus.getPushId(), PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM);
     }
 
     @Override

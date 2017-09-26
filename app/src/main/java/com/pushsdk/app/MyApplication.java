@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.pushsdk.library.utils.PushDeviceInfoMgr;
 import com.pushsdk.library.wrapper.GPushWrapper;
 import com.pushsdk.library.wrapper.PushSdkCallBack;
 
@@ -48,8 +49,11 @@ public class MyApplication extends Application {
             }
 
             @Override
-            public void upLoadToken(String token) {
+            public void upLoadToken(String token,int RomType) {
                 //网络请求上传token
+               // PushDeviceInfoMgr.MI_UI_ROM;
+               // PushDeviceInfoMgr.HUAWEI_EM_UI_ROM;
+                //PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM;
             }
         });
     }

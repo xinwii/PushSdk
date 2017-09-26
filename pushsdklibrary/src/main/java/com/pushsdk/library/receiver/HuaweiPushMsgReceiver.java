@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.huawei.android.pushagent.api.PushEventReceiver;
+import com.pushsdk.library.utils.PushDeviceInfoMgr;
 import com.pushsdk.library.wrapper.GPushWrapper;
 
 /*
@@ -25,7 +26,7 @@ public class HuaweiPushMsgReceiver extends PushEventReceiver {
         String belongId = extras.getString("belongId");
         String content = "获取token和belongId成功，token = " + token + ",belongId = " + belongId;
         Log.e("GPush","huawei push" + content);
-        GPushWrapper.getInstance().upLoadToken(token);
+        GPushWrapper.getInstance().upLoadToken(token, PushDeviceInfoMgr.HUAWEI_EM_UI_ROM);
     }
 
 
