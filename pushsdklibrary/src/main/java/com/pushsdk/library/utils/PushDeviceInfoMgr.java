@@ -69,23 +69,23 @@ public class PushDeviceInfoMgr
 				&& !TextUtils.isEmpty( m_strMIUIVersionName ) )
 		{
 			nRomType = MI_UI_ROM;
-			Log.e("GPush", "current rom type is miui, the miui version name is: " + m_strMIUIVersionName );
+			Log.e("Push", "current rom type is miui, the miui version name is: " + m_strMIUIVersionName );
 		}
 		else if ( ( null != m_strEMUIVersion || null != ( m_strEMUIVersion = getSystemProperty( EM_UI_API_LEVEL_PROPERTY ) ) )
 					&& !TextUtils.isEmpty( m_strEMUIVersion ) )
 		{
 			nRomType = HUAWEI_EM_UI_ROM;
-			Log.e("GPush", "current rom type is emui, the emui version name is: " + m_strEMUIVersion );
+			Log.e("Push", "current rom type is emui, the emui version name is: " + m_strEMUIVersion );
 		}
 		else if ( ( null != m_strFlymeOSDispalyID || null != ( m_strFlymeOSDispalyID = getSystemProperty( FLYME_OS_DISPLAY_ID_PROPERTY ) ) )
 					&& ( m_strFlymeOSDispalyID.contains("flyme") || m_strFlymeOSDispalyID.toLowerCase().contains("flyme") ) )
 		{
 			nRomType = MEIZU_FLYME_OS_ROM;
-			Log.e("GPush", "current rom type is flyme, the flyme display id is: " + m_strFlymeOSDispalyID );
+			Log.e("Push", "current rom type is flyme, the flyme display id is: " + m_strFlymeOSDispalyID );
 		}
 		else
 		{
-			Log.e("GPush", "current rom type is other rom" );
+			Log.e("Push", "current rom type is other rom" );
 		}
 		return nRomType;
 	}

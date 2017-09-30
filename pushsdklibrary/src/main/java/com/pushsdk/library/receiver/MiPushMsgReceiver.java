@@ -61,7 +61,7 @@ public class MiPushMsgReceiver extends PushMessageReceiver {
     @Override
     public void onReceivePassThroughMessage(Context context, MiPushMessage message) {
         mMessage = message.getContent();
-        Log.e("GPush","onReceivePassThroughMessage>>>>>>>" + mMessage);
+        Log.e("Push","onReceivePassThroughMessage>>>>>>>" + mMessage);
         if(!TextUtils.isEmpty(message.getTopic())) {
             mTopic=message.getTopic();
         } else if(!TextUtils.isEmpty(message.getAlias())) {
@@ -73,7 +73,7 @@ public class MiPushMsgReceiver extends PushMessageReceiver {
     @Override
     public void onNotificationMessageClicked(Context context, MiPushMessage message) {
         mMessage = message.getContent();
-        Log.e("GPush","onNotificationMessageClicked>>>>>>>" + mMessage);
+        Log.e("Push","onNotificationMessageClicked>>>>>>>" + mMessage);
         if(!TextUtils.isEmpty(message.getTopic())) {
             mTopic=message.getTopic();
         } else if(!TextUtils.isEmpty(message.getAlias())) {
@@ -86,7 +86,7 @@ public class MiPushMsgReceiver extends PushMessageReceiver {
     @Override
     public void onNotificationMessageArrived(Context context, MiPushMessage message) {
         mMessage = message.getContent();
-        Log.e("GPush","onNotificationMessageArrived>>>>>>>" + mMessage);
+        Log.e("Push","onNotificationMessageArrived>>>>>>>" + mMessage);
         if(!TextUtils.isEmpty(message.getTopic())) {
             mTopic=message.getTopic();
         } else if(!TextUtils.isEmpty(message.getAlias())) {
@@ -98,7 +98,7 @@ public class MiPushMsgReceiver extends PushMessageReceiver {
     @Override
     public void onCommandResult(Context context, MiPushCommandMessage message) {
         String command = message.getCommand();
-        Log.e("GPush","onCommandResult>>>>>>>" + command);
+        Log.e("Push","onCommandResult>>>>>>>" + command);
         List<String> arguments = message.getCommandArguments();
         String cmdArg1 = ((arguments != null && arguments.size() > 0) ? arguments.get(0) : null);
         String cmdArg2 = ((arguments != null && arguments.size() > 1) ? arguments.get(1) : null);
@@ -139,7 +139,7 @@ public class MiPushMsgReceiver extends PushMessageReceiver {
         if (MiPushClient.COMMAND_REGISTER.equals(command)) {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
                 mRegId = cmdArg1;
-                Log.e("GPush","mi push RegId>>>>>>>" + mRegId);
+                Log.e("Push","mi push RegId>>>>>>>" + mRegId);
                 GPushWrapper.getInstance().upLoadToken(mRegId, PushDeviceInfoMgr.MI_UI_ROM);
             }
         }
