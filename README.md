@@ -34,10 +34,10 @@
           @Override
           public void upLoadToken(String token,int RomType) {
               //网络请求上传token
-              // PushDeviceInfoMgr.MI_UI_ROM;
-              // PushDeviceInfoMgr.HUAWEI_EM_UI_ROM;
-              //PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM;
-          }
+              // PushDeviceInfoMgr.MI_UI_ROM;  小米
+              // PushDeviceInfoMgr.HUAWEI_EM_UI_ROM; 华为
+              //PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM; 魅族
+          }
       });
   }
 ```
