@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PushSdk</string>
     <!--推送key开始-->
-    <string name="mi_id">小米id</string>
-    <string name="mi_key">小米key</string>
+    <string name="mi_id">2882303761517623960</string>
+    <string name="mi_key">5941762359960</string>
     <string name="flyme_id">魅族id</string>
     <string name="flyme_key">魅族key</string>
     <!--推送key结束-->
