@@ -39,7 +39,7 @@
 
           @Override
           public void upLoadToken(String token,int RomType) {
-              //网络请求上传token
+              //网络请求上传token，RomType系统rom版本
               // PushDeviceInfoMgr.MI_UI_ROM;  小米
               // PushDeviceInfoMgr.HUAWEI_EM_UI_ROM; 华为
               //PushDeviceInfoMgr.MEIZU_FLYME_OS_ROM; 魅族
